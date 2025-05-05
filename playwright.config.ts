@@ -32,12 +32,44 @@ export default defineConfig({
       name: 'chromium',
       use: { ...devices['Desktop Chrome'], storageState: 'playwright/.auth/user.json' },
       dependencies: ['setup'],
+      testMatch: /.*\.spec\.ts/,
     },
 
     {
       name: 'firefox',
       use: { ...devices['Desktop Firefox'], storageState: 'playwright/.auth/user.json' },
       dependencies: ['setup'],
+      testMatch: /.*\.spec\.ts/,
+    },
+
+    {
+      name: 'Microsoft Edge',
+      use: { ...devices['Desktop Edge'], channel: 'msedge', storageState: 'playwright/.auth/user.json' },
+      dependencies: ['setup'],
+      testMatch: /.*\.spec\.ts/,
+    },
+    
+    // without authentication
+
+    {
+      name: 'chromium-non-auth',
+      use: { ...devices['Desktop Chrome'], storageState: undefined},
+      dependencies: ['setup'],
+      testMatch: /.*\.public\.ts/,
+    },
+
+    {
+      name: 'firefox-non-auth',
+      use: { ...devices['Desktop Firefox'], storageState: undefined },
+      dependencies: ['setup'],
+      testMatch: /.*\.public\.ts/,
+    },
+
+    {
+      name: 'Microsoft Edge-non-auth',
+      use: { ...devices['Desktop Edge'], channel: 'msedge', storageState: undefined },
+      dependencies: ['setup'],
+      testMatch: /.*\.public\.ts/,
     },
 
     // {
@@ -56,11 +88,9 @@ export default defineConfig({
     // },
 
     /* Test against branded browsers. */
-    {
-      name: 'Microsoft Edge',
-      use: { ...devices['Desktop Edge'], channel: 'msedge', storageState: 'playwright/.auth/user.json' },
-      dependencies: ['setup'],
-    },
+   
+
+    
     // {
     //   name: 'Google Chrome',
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
