@@ -15,9 +15,6 @@ test('Test run ad bonus show message run report success', async ({ page }) => {
   await page.getByRole('treeitem', { name: 'FM - Financial Manager' }).click();
   await page.getByRole('link', { name: ' Scheme Management' }).click();
   await page.getByRole('link', { name: '' }).first().click();
-  await page.locator('#btnCancel').click();
-  await page.locator('#btnCancel').click();
-  await page.locator('#btnCancel').click();
   await page.locator('#linkList').click();
   await expect(page.locator('h1')).toContainText('Scheme Management');
   });
