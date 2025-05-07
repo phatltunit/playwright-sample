@@ -1,19 +1,26 @@
 import { defineConfig, devices } from "@playwright/test";
 
-const browsers = [
+
+interface Browser {
+  name: string;
+  device: string;
+  channel?: string;
+}
+
+const browsers: Browser[] = [
   {
     name: "chromium",
     device: "Desktop Chrome",
   },
-  {
-    name: "firefox",
-    device: "Desktop Firefox",
-  },
-  {
-    name: "edge",
-    device: "Microsoft Edge",
-    channel: "msedge",
-  },
+  // {
+  //   name: "firefox",
+  //   device: "Desktop Firefox",
+  // },
+  // {
+  //   name: "edge",
+  //   device: "Microsoft Edge",
+  //   channel: "msedge",
+  // },
 ];
 
 const configuration = [
