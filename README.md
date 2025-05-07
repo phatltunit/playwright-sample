@@ -12,11 +12,10 @@ This project demonstrates how to handle authentication in Playwright tests.
 
 ### Cases with Authentication
 
--   `tests/test-1.spec.ts`: This test case requires authentication. It uses the `base` test setup, which navigates to the main page after authentication. The authentication state is managed by `tests/auth.setup.ts` and stored in `playwright/.auth/user.json`.
+-   `tests/test-1.public.ts`: This test case checks if the Login button is visible on the page when the user is not authenticated.
+### Bonus Report Verification Tests
 
-### Cases without Authentication
-
--   `tests/test-1.public.ts`: This test case does not require authentication. It directly navigates to the base URL and checks for the "Login" button.
+-   `tests/verify-bonus.spec.ts`: This test suite verifies the bonus reports for different URLs. It iterates through a list of URLs defined in `utils/bonus-urls.ts` and checks if the report can be displayed correctly.
 
 ## Getting Started
 
