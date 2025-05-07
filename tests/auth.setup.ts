@@ -1,5 +1,6 @@
 import {test as setup, expect} from '@playwright/test';
 import path from 'path';
+import * as generator from '../utils/generate-bonus-urls'
 import { LOGIN_PAGE_URL, MAIN_PAGE_URL, TEST_USER, TEST_PASSWORD } from '../env';
 
 const authFilePath = path.join(__dirname, '../playwright/.auth/user.json');
@@ -20,4 +21,9 @@ setup('auth', async ({page}) => {
     });
 
     
+});
+
+setup('generate-urls', async () => {
+    const list = await generator.main();
+    expect(list.length).toBeGreaterThan(0);
 });
